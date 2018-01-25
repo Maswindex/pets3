@@ -5,6 +5,8 @@
     //create an instance sof the Base class
     $f3 = Base::instance();
 
+    $f3->set('colors', array('pink', 'green', 'blue'));
+
     //Define a default route
     $f3->route('GET /', function () {
         $view = new View;
@@ -34,9 +36,9 @@
     });
 
     //Define a default route
-    $f3->route('POST /pets/order2', function () {
+    $f3->route('POST /pets/order2', function ($f3) {
         $view = new View;
-        echo $view->render('views/form2.php');
+        echo Template::instance()->render('views/form2.php');
     });
 
     //Define a default route
@@ -44,6 +46,12 @@
         $view = new View;
         echo $view->render('views/results.php');
     });
+
+    $f3->route('GET|POST /new-pet', function ($f3) {
+        $view = new View;
+        echo $view->render('views/results.php');
+    });
+
 
     //run fat free
     $f3->run();

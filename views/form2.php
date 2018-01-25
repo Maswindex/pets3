@@ -11,11 +11,11 @@
 </head>
 <body>
 <form action="./results" method="POST">
+
     <select name="color">
-        <option value='purple'>Purple</option>
-        <option value='orange'>Orange</option>
-        <option value='green'>Green</option>
-        <option value='black'>Black</option>
+    <repeat group="{{@colors}}" value="{{@color}}">
+        <option value='{{@color}}'>{{@color}}</option>
+    </repeat>
     </select>
 
     <button type='submit'>Order</button>
