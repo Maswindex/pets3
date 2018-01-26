@@ -20,7 +20,7 @@
     */
     function validString($string){
         global $f3;
-        return ($string != null) && ( ctype_alpha($string));
+        return ($string != "") && ( ctype_alpha($string));
     }
 
     if(!validColor($color)) {

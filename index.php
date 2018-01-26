@@ -1,4 +1,7 @@
 <?php
+
+    print_r($_POST);
+
     require_once("vendor/autoload.php");
 
 
@@ -52,9 +55,11 @@
             $color = $_POST['color'];
             $animal = $_POST['animal'];
             $name = $_POST['name'];
+
             include(model/validate.php);
+
             $f3->set('color', $color);
-            $f3->set('animalType', $animal);
+            $f3->set('animal', $animal);
             $f3->set('name', $name);
             $f3->set('errors', $errors);
             $f3->set('success', $success);
