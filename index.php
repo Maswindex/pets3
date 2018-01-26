@@ -48,8 +48,19 @@
     });
 
     $f3->route('GET|POST /new-pet', function ($f3) {
-        $view = new View;
-        echo $view->render('views/results.php');
+        if(isset($_POST['submit'])){
+            $color = $_POST['color'];
+            $animal = $_POST['animal'];
+            $name = $_POST['name'];
+            include(model/validate.php);
+            $f3->set('color', $color);
+            $f3->set('animalType', $animal);
+            $f3->set('name', $name);
+            $f3->set('errors', $errors);
+            $f3->set('success', $success);
+
+        }
+        echo Template::instance()->render('views/new-pet.php');
     });
 
 
