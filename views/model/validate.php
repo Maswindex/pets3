@@ -19,14 +19,15 @@
     * @return boolean
     */
     function validString($string){
-        global $f3;
-        return ($string != "") && ( ctype_alpha($string));
+        return ($string !== '') && ( ctype_alpha($string));
     }
 
     if(!validColor($color)) {
-        $errors['color'] = "Please enter  valid color";
-    } else if(!validString($petname)) {
-        $errors['petname'] = "Please enter  valid name";
+        $errors['color'] = "Please enter a valid color";
+    } else if(!validString($name)) {
+        $errors['petname'] = "Please enter a valid name";
+    }else if(!validString($animal)) {
+        $errors['petname'] = "Please enter a valid type";
     }
 
     $success = sizeof($errors) == 0;

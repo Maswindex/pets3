@@ -1,6 +1,5 @@
 <?php
 
-    print_r($_POST);
 
     require_once("vendor/autoload.php");
 
@@ -56,13 +55,14 @@
             $animal = $_POST['animal'];
             $name = $_POST['name'];
 
-            include(model/validate.php);
+            include("./views/model/validate.php");
 
             $f3->set('color', $color);
             $f3->set('animal', $animal);
             $f3->set('name', $name);
             $f3->set('errors', $errors);
             $f3->set('success', $success);
+            $f3->set('submitted', $_POST['submit']);
 
         }
         echo Template::instance()->render('views/new-pet.php');

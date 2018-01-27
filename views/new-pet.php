@@ -11,10 +11,13 @@
     <check if="{{@success}}">
         <h2>{{@name}} thanks you for your order of a {{@color}} {{@animal}}</h2>
     </check>
+    <check if="{{!@success && @submitted}}">
+        <h2>Error</h2>
+        <repeat group="{{@errors}}" value="{{@error}}">
+            <h3>{{@error}}</h3>
+        </repeat>
+    </check>
 
-    <!-- Color -->
-    <label class="col-sm-1 control-label"
-           for="pet-color">Pet Color</label>
 
     <div class="col-sm-3">
         <check if="{{@errors['color']}}">
@@ -22,11 +25,14 @@
         </check>
 
         <form action="./new-pet" method="post">
+            <!-- Color -->
+            <label class="col-sm-1 control-label"
+                   for="pet-color">Pet Color: </label>
             <select class="form-control" name="color" id="pet-color">
                 <option>--Select--</option>
                 <repeat group="{{@colors}}" value="{{@colorOption}}">
-                    <option>
-                        <check if="{{@colorOption == @color}}">selected</check>
+                    <option <check if="{{@colorOption == @color}}">selected</check>>
+
                         {{@colorOption}}
                     </option>
                 </repeat>
@@ -35,9 +41,13 @@
 
 
 
+            <label class="col-sm-1 control-label"
+                   for="pet-color">Pet type: </label>
             <input type="text" name="animal" value="{{@animal}}">
 
 
+            <label class="col-sm-1 control-label"
+                   for="pet-color">Pet Name: </label>
             <input type="text" name="name" value="{{@name}}">
 
             <input name="submit" type="submit">
