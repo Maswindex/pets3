@@ -20,9 +20,6 @@
 
 
     <div class="col-sm-3">
-        <check if="{{@errors['color']}}">
-            <p>{{@errors['color']}}</p>
-        </check>
 
         <form action="./new-pet" method="post">
             <!-- Color -->

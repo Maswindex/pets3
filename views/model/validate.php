@@ -24,10 +24,12 @@
 
     if(!validColor($color)) {
         $errors['color'] = "Please enter a valid color";
-    } else if(!validString($name)) {
+    }
+    if(!validString($name)) {
         $errors['petname'] = "Please enter a valid name";
-    }else if(!validString($animal)) {
-        $errors['petname'] = "Please enter a valid type";
+    }
+    if(!validString($animal)) {
+        $errors['petType'] = "Please enter a valid type";
     }
 
     $success = sizeof($errors) == 0;
